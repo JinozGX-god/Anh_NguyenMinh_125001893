@@ -316,26 +316,6 @@ h1, h2, h3, h4 {
 /* ========================================================================
    4. HEADER & NAVIGATION (BÀI 02 & BÀI 03)
    ======================================================================== */
-.top-banner {
-    background: linear-gradient(90deg, #8b5cf6, #ec4899, #06b6d4);
-    color: var(--text-white);
-    font-size: var(--fs-xs);
-    font-weight: var(--fw-semibold);
-    padding: 0.45rem 0;
-}
-
-.top-banner__content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.top-banner__link {
-    color: #fff;
-    font-weight: var(--fw-extrabold);
-    text-decoration: underline;
-}
-
 .header {
     position: sticky;
     top: 0;
