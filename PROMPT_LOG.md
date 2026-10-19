@@ -12,8 +12,8 @@
 - **Tên đề tài Website:** **BookVerse — Thế Giới Sách Của Bạn** (Landing Page Nhà Sách Trực Tuyến & Thư Viện Sách 3D Tương Tác)
 - **Công cụ AI sử dụng:** Antigravity IDE (Powered by Gemini & Claude)
 - **Quy chuẩn tên Repository:** `Anh_NguyenMinh_125001893`
-- **Link GitHub Repository:** `https://github.com/[username]/Anh_NguyenMinh_125001893` *(Thay [username] bằng tài khoản GitHub của bạn)*
-- **Link Live Preview (GitHub Pages):** `https://[username].github.io/Anh_NguyenMinh_125001893/` *(Link xem trực tiếp sau khi bật GitHub Pages)*
+- **Link GitHub Repository:** `https://github.com/JinozGX-god/Anh_NguyenMinh_125001893`
+- **Link Live Preview (GitHub Pages):** `https://jinozgx-god.github.io/Anh_NguyenMinh_125001893/`
 
 ---
 
