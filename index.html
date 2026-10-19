@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BookVerse - Nhà sách trực tuyến hàng đầu Việt Nam. Khám phá hàng ngàn đầu sách từ văn học, khoa học đến phát triển bản thân.">
+    <meta name="theme-color" content="#1a3c34">
+    <title>BookVerse — Thế Giới Sách Của Bạn</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Animate.css (Thư viện hiệu ứng CSS - yêu cầu đề thi) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <!-- AOS CSS (Animate On Scroll - yêu cầu đề thi) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ======================================================================
+         HEADER & NAVIGATION
+         Semantic: <header> + <nav> — Chứa logo và thanh điều hướng
+    ====================================================================== -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo" aria-label="BookVerse - Trang chủ">
+                📚 Book<span class="highlight">Verse</span>
+            </a>
+
+            <!-- CSS-Only Hamburger Menu (không cần JavaScript) -->
+            <input type="checkbox" id="nav-toggle" class="nav__checkbox" aria-hidden="true">
+            <label for="nav-toggle" class="nav__hamburger" aria-label="Mở menu điều hướng">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <ul class="nav__menu">
+                <li><a href="#home" class="nav__link">Trang chủ</a></li>
+                <li><a href="#featured" class="nav__link">Nổi bật</a></li>
+                <li><a href="#categories" class="nav__link">Danh mục</a></li>
+                <li><a href="#bestsellers" class="nav__link">Bestsellers</a></li>
+                <li><a href="#reviews" class="nav__link">Đánh giá</a></li>
+                <li><a href="#subscribe" class="nav__link nav__link--cta">Đăng ký</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ======================================================================
+         MAIN CONTENT
+         Semantic: <main> — Khu vực nội dung chính
+    ====================================================================== -->
+    <main>
+
+        <!-- ===== HERO SECTION ===== -->
+        <section id="home" class="hero">
+            <div class="hero__content container">
+                <p class="hero__eyebrow animate__animated animate__fadeIn">📖 Chào mừng đến với</p>
+                <h1 class="hero__title animate__animated animate__fadeInUp">
+                    Book<span class="highlight">Verse</span>
+                </h1>
+                <p class="hero__subtitle animate__animated animate__fadeInUp animate__delay-1s">
+                    Khám phá thế giới trong từng trang sách<br>
+                    <em>Nơi tri thức không có giới hạn</em>
+                </p>
+                <div class="hero__actions animate__animated animate__fadeInUp animate__delay-1s">
+                    <a href="#featured" class="btn btn--primary">Khám Phá Ngay</a>
+                    <a href="#categories" class="btn btn--outline">Xem Danh Mục</a>
+                </div>
+                <div class="hero__stats">
+                    <div class="hero__stat">
+                        <span class="hero__stat-number">10,000+</span>
+                        <span class="hero__stat-label">Đầu sách</span>
+                    </div>
+                    <div class="hero__stat">
+                        <span class="hero__stat-number">50,000+</span>
+                        <span class="hero__stat-label">Độc giả</span>
+                    </div>
+                    <div class="hero__stat">
+                        <span class="hero__stat-number">4.9 ★</span>
+                        <span class="hero__stat-label">Đánh giá</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FEATURED BOOKS — 3D FLIP CARDS =====
+             Semantic: <section> + <figure> + <figcaption>
+             Kỹ thuật: CSS 3D Transforms (perspective, rotateY, backface-visibility) -->
+        <section id="featured" class="featured section">
+            <div class="container">
+                <h2 class="section__title" data-aos="fade-up">
+                    Sách <span class="highlight">Nổi Bật</span>
+                </h2>
+                <p class="section__desc" data-aos="fade-up" data-aos-delay="100">
+                    Những cuốn sách được yêu thích nhất tháng này — Hover vào sách để khám phá
+                </p>
+
+                <div class="featured__grid">
+                    <!-- Book 1: Văn học -->
+                    <figure class="flip-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flip-card__inner">
+                            <div class="flip-card__front flip-card__cover--warm">
+                                <span class="flip-card__badge">Mới</span>
+                                <h3 class="flip-card__cover-title">Hành Trình<br>Ánh Sáng</h3>
+                                <p class="flip-card__cover-author">Nguyễn Minh Anh</p>
+                            </div>
+                            <div class="flip-card__back">
+                                <span class="flip-card__genre">📖 Văn học</span>
+                                <h3>Hành Trình Ánh Sáng</h3>
+                                <p class="flip-card__author">Nguyễn Minh Anh</p>
+                                <p class="flip-card__desc">Câu chuyện đầy cảm xúc về hành trình tìm kiếm ý nghĩa cuộc sống qua những trang viết triết lý sâu sắc và nhân văn.</p>
+                                <p class="flip-card__price">185.000₫</p>
+                                <a href="#" class="btn btn--small">Xem Chi Tiết</a>
+                            </div>
+                        </div>
+                        <figcaption>Hover để xem chi tiết</figcaption>
+                    </figure>
+
+                    <!-- Book 2: Khoa học -->
+                    <figure class="flip-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flip-card__inner">
+                            <div class="flip-card__front flip-card__cover--cool">
+                                <span class="flip-card__badge">Hot</span>
+                                <h3 class="flip-card__cover-title">Bí Mật<br>Vũ Trụ</h3>
+                                <p class="flip-card__cover-author">Trần Đức Khoa</p>
+                            </div>
+                            <div class="flip-card__back">
+                                <span class="flip-card__genre">🔬 Khoa học</span>
+                                <h3>Bí Mật Vũ Trụ</h3>
+                                <p class="flip-card__author">Trần Đức Khoa</p>
+                                <p class="flip-card__desc">Khám phá những bí ẩn kỳ diệu của vũ trụ — từ Big Bang đến hố đen, từ lượng tử đến đa vũ trụ.</p>
+                                <p class="flip-card__price">220.000₫</p>
+                                <a href="#" class="btn btn--small">Xem Chi Tiết</a>
+                            </div>
+                        </div>
+                        <figcaption>Hover để xem chi tiết</figcaption>
+                    </figure>
+
+                    <!-- Book 3: Self-help -->
+                    <figure class="flip-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flip-card__inner">
+                            <div class="flip-card__front flip-card__cover--nature">
+                                <span class="flip-card__badge">⭐ Best</span>
+                                <h3 class="flip-card__cover-title">Nghệ Thuật<br>Thành Công</h3>
+                                <p class="flip-card__cover-author">Lê Hoàng Nam</p>
+                            </div>
+                            <div class="flip-card__back">
+                                <span class="flip-card__genre">🌱 Self-help</span>
+                                <h3>Nghệ Thuật Thành Công</h3>
+                                <p class="flip-card__author">Lê Hoàng Nam</p>
+                                <p class="flip-card__desc">Bí quyết xây dựng tư duy thành công và phát triển bản thân toàn diện trong thời đại số.</p>
+                                <p class="flip-card__price">165.000₫</p>
+                                <a href="#" class="btn btn--small">Xem Chi Tiết</a>
+                            </div>
+                        </div>
+                        <figcaption>Hover để xem chi tiết</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CATEGORIES =====
+             Semantic: <section>
+             Kỹ thuật: CSS Grid + hover effects -->
+        <section id="categories" class="categories section">
+            <div class="container">
+                <h2 class="section__title" data-aos="fade-up">
+                    Danh Mục <span class="highlight">Sách</span>
+                </h2>
+                <p class="section__desc" data-aos="fade-up" data-aos-delay="100">
+                    Khám phá kho tàng tri thức đa dạng với hơn 6,400 đầu sách
+                </p>
+
+                <div class="categories__grid">
+                    <div class="category-card" data-aos="zoom-in" data-aos-delay="100">
+                        <span class="category-card__icon">📖</span>
+                        <h3 class="category-card__title">Văn Học &amp; Tiểu Thuyết</h3>
+                        <p class="category-card__count">2,500+ cuốn</p>
+                        <a href="#" class="category-card__link">Khám phá →</a>
+                    </div>
+
+                    <div class="category-card" data-aos="zoom-in" data-aos-delay="200">
+                        <span class="category-card__icon">🔬</span>
+                        <h3 class="category-card__title">Khoa Học &amp; Công Nghệ</h3>
+                        <p class="category-card__count">1,800+ cuốn</p>
+                        <a href="#" class="category-card__link">Khám phá →</a>
+                    </div>
+
+                    <div class="category-card" data-aos="zoom-in" data-aos-delay="300">
+                        <span class="category-card__icon">📊</span>
+                        <h3 class="category-card__title">Kinh Tế &amp; Kinh Doanh</h3>
+                        <p class="category-card__count">1,200+ cuốn</p>
+                        <a href="#" class="category-card__link">Khám phá →</a>
+                    </div>
+
+                    <div class="category-card" data-aos="zoom-in" data-aos-delay="400">
+                        <span class="category-card__icon">🌱</span>
+                        <h3 class="category-card__title">Phát Triển Bản Thân</h3>
+                        <p class="category-card__count">900+ cuốn</p>
+                        <a href="#" class="category-card__link">Khám phá →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== BESTSELLER BOOKSHELF =====
+             Semantic: <section> + <ol> (danh sách có thứ tự — bestsellers)
+             Kỹ thuật: CSS 3D bookshelf với hover pull-out effect -->
+        <section id="bestsellers" class="bestsellers section">
+            <div class="container">
+                <h2 class="section__title section__title--light" data-aos="fade-up">
+                    Kệ Sách <span class="highlight">Bestseller</span>
+                </h2>
+                <p class="section__desc section__desc--light" data-aos="fade-up" data-aos-delay="100">
+                    Top 8 cuốn sách bán chạy nhất — Rê chuột vào để rút sách ra khỏi kệ
+                </p>
+
+                <div class="bookshelf" data-aos="fade-up" data-aos-delay="200">
+                    <ol class="bookshelf__books">
+                        <li class="shelf-book" style="--book-color: #c0392b; --book-height: 220px;">
+                            <span class="shelf-book__title">Đắc Nhân Tâm</span>
+                            <span class="shelf-book__author">Dale Carnegie</span>
+                        </li>
+                        <li class="shelf-book" style="--book-color: #2980b9; --book-height: 200px;">
+                            <span class="shelf-book__title">Nhà Giả Kim</span>
+                            <span class="shelf-book__author">Paulo Coelho</span>
+                        </li>
+                        <li class="shelf-book" style="--book-color: #27ae60; --book-height: 235px;">
+                            <span class="shelf-book__title">Sapiens</span>
+                            <span class="shelf-book__author">Y.N. Harari</span>
+                        </li>
+                        <li class="shelf-book" style="--book-color: #8e44ad; --book-height: 210px;">
+                            <span class="shelf-book__title">Tư Duy Nhanh Và Chậm</span>
+                            <span class="shelf-book__author">D. Kahneman</span>
+                        </li>
+                        <li class="shelf-book" style="--book-color: #e67e22; --book-height: 195px;">
+                            <span class="shelf-book__title">Atomic Habits</span>
+                            <span class="shelf-book__author">James Clear</span>
+                        </li>
+                        <li class="shelf-book" style="--book-color: #16a085; --book-height: 225px;">
+                            <span class="shelf-book__title">Dám Bị Ghét</span>
+                            <span class="shelf-book__author">Kishimi &amp; Koga</span>
+                        </li>
+                        <li class="shelf-book" style="--book-color: #2c3e50; --book-height: 215px;">
+                            <span class="shelf-book__title">Homo Deus</span>
+                            <span class="shelf-book__author">Y.N. Harari</span>
+                        </li>
+                        <li class="shelf-book" style="--book-color: #d35400; --book-height: 205px;">
+                            <span class="shelf-book__title">Tuổi Trẻ Đáng Giá Bao Nhiêu</span>
+                            <span class="shelf-book__author">Rosie Nguyễn</span>
+                        </li>
+                    </ol>
+                    <div class="bookshelf__wood"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== REVIEWS =====
+             Semantic: <section> + <article> + <blockquote>
+             Đáp ứng yêu cầu thẻ <article> của đề thi -->
+        <section id="reviews" class="reviews section">
+            <div class="container">
+                <h2 class="section__title" data-aos="fade-up">
+                    Độc Giả <span class="highlight">Nói Gì</span>
+                </h2>
+                <p class="section__desc" data-aos="fade-up" data-aos-delay="100">
+                    Cảm nhận từ cộng đồng yêu sách BookVerse
+                </p>
+
+                <div class="reviews__grid">
+                    <article class="review-card" data-aos="fade-right" data-aos-delay="100">
+                        <div class="review-card__stars">⭐⭐⭐⭐⭐</div>
+                        <blockquote class="review-card__quote">
+                            "BookVerse đã thay đổi hoàn toàn thói quen đọc sách của tôi. Bộ sưu tập phong phú, giao hàng siêu tốc và đóng gói cẩn thận. Mỗi cuốn sách đều đến tay tôi như một món quà!"
+                        </blockquote>
+                        <div class="review-card__info">
+                            <span class="review-card__avatar" style="--avatar-bg: #e74c3c;">MT</span>
+                            <div>
+                                <p class="review-card__name">Minh Thư</p>
+                                <p class="review-card__role">Giáo viên Văn học</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="review-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="review-card__stars">⭐⭐⭐⭐⭐</div>
+                        <blockquote class="review-card__quote">
+                            "Là sinh viên CNTT, tôi tìm thấy rất nhiều sách công nghệ cập nhật tại đây. Giao diện website đẹp mắt, dễ tìm kiếm. Nhất định sẽ giới thiệu cho bạn bè!"
+                        </blockquote>
+                        <div class="review-card__info">
+                            <span class="review-card__avatar" style="--avatar-bg: #3498db;">HA</span>
+                            <div>
+                                <p class="review-card__name">Hoàng Anh</p>
+                                <p class="review-card__role">Sinh viên CNTT</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="review-card" data-aos="fade-left" data-aos-delay="300">
+                        <div class="review-card__stars">⭐⭐⭐⭐⭐</div>
+                        <blockquote class="review-card__quote">
+                            "Giá cả hợp lý, nhiều ưu đãi hấp dẫn. Tôi đặc biệt thích chương trình 'Sách hay mỗi tuần'. BookVerse thực sự là thiên đường cho người yêu sách!"
+                        </blockquote>
+                        <div class="review-card__info">
+                            <span class="review-card__avatar" style="--avatar-bg: #2ecc71;">TH</span>
+                            <div>
+                                <p class="review-card__name">Thanh Hà</p>
+                                <p class="review-card__role">Nhà báo</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SUBSCRIBE CTA =====
+             Semantic: <section> + <form> với <label>
+             Kỹ thuật: Glassmorphism, :focus effects -->
+        <section id="subscribe" class="subscribe section">
+            <div class="container">
+                <div class="subscribe__wrapper" data-aos="zoom-in">
+                    <h2 class="section__title section__title--light">
+                        Đăng Ký Nhận <span class="highlight">Sách Mới</span>
+                    </h2>
+                    <p class="section__desc section__desc--light">
+                        Nhận thông báo về sách mới và ưu đãi độc quyền mỗi tuần
+                    </p>
+
+                    <form class="subscribe__form" action="#" method="post">
+                        <div class="form__group">
+                            <label for="fullname" class="form__label">Họ và Tên</label>
+                            <input type="text" id="fullname" name="fullname" class="form__input" placeholder="Nguyễn Văn A" required>
+                        </div>
+                        <div class="form__group">
+                            <label for="email" class="form__label">Email</label>
+                            <input type="email" id="email" name="email" class="form__input" placeholder="email@example.com" required>
+                        </div>
+                        <div class="form__group">
+                            <label for="genre" class="form__label">Thể loại yêu thích</label>
+                            <select id="genre" name="genre" class="form__input form__select">
+                                <option value="">— Chọn thể loại —</option>
+                                <option value="vanhoc">Văn học &amp; Tiểu thuyết</option>
+                                <option value="khoahoc">Khoa học &amp; Công nghệ</option>
+                                <option value="kinhte">Kinh tế &amp; Kinh doanh</option>
+                                <option value="selfhelp">Phát triển bản thân</option>
+                                <option value="all">Tất cả thể loại</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full">
+                            ✉️ Đăng Ký Ngay
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ======================================================================
+         FOOTER
+         Semantic: <footer> + <address> — Chân trang thông tin liên hệ, copyright
+    ====================================================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col">
+                    <h3 class="footer__logo">📚 Book<span class="highlight">Verse</span></h3>
+                    <p class="footer__desc">
+                        Nhà sách trực tuyến hàng đầu Việt Nam. Sứ mệnh mang tri thức đến gần hơn với mọi người.
+                    </p>
+                    <div class="footer__social">
+                        <a href="#" class="social-link" aria-label="Facebook">FB</a>
+                        <a href="#" class="social-link" aria-label="Instagram">IG</a>
+                        <a href="#" class="social-link" aria-label="YouTube">YT</a>
+                        <a href="#" class="social-link" aria-label="TikTok">TT</a>
+                    </div>
+                </div>
+
+                <div class="footer__col">
+                    <h3 class="footer__heading">Liên Kết Nhanh</h3>
+                    <ul class="footer__links">
+                        <li><a href="#home">Trang chủ</a></li>
+                        <li><a href="#featured">Sách nổi bật</a></li>
+                        <li><a href="#categories">Danh mục sách</a></li>
+                        <li><a href="#bestsellers">Bestsellers</a></li>
+                        <li><a href="#reviews">Đánh giá</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__col">
+                    <h3 class="footer__heading">Liên Hệ</h3>
+                    <address class="footer__address">
+                        <p>📍 TP. Biên Hòa, Đồng Nai</p>
+                        <p>📞 0123 456 789</p>
+                        <p>✉️ hello@bookverse.vn</p>
+                        <p>🕐 8:00 — 22:00 (T2 — CN)</p>
+                    </address>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p>&copy; 2026 BookVerse. Thiết kế bởi <strong>Nguyễn Minh Anh</strong> (MSSV: 125001893 — Lớp: 25AI111). All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Library — Khởi tạo thư viện (bắt buộc theo yêu cầu đề thi) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 800, once: true, offset: 100 });</script>
+
+</body>
+</html>
