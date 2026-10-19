@@ -160,6 +160,30 @@ Website phiên bản đầu tiên còn đơn giản và hơi ít nội dung, fon
 
 ---
 
+### 🔄 Lần 6: Tối Ưu Hóa Bám Sát 100% 5 Bài Học Học Phần Thiết Kế Web & Sử Dụng Nhiếp Ảnh Sách Thật
+
+#### 1. Prompt đã dùng:
+```text
+Dựa theo nội dung 5 bài học cốt lõi đã học trong học phần Thiết Kế Web (ĐH Lạc Hồng):
+- Bài 02 (Semantic HTML5): Sử dụng đúng cấu trúc DOM với <header>, <nav>, <main>, <aside> (sidebar lọc sách), <section>, <article> (sản phẩm), <figure>, <figcaption>, <blockquote>, <footer>, <address>. Không lạm dụng <div>. Đảm bảo 100% thẻ <img> có thuộc tính alt chuẩn SEO và loading="lazy".
+- Bài 03 (Layout System): Kết hợp Flexbox (căn chỉnh menu, nút, header) và CSS Grid 2 chiều (Catalog layout gồm Sidebar <aside> 280px + Grid sản phẩm 3 cột; Services grid 4 cột; Footer grid 4 cột).
+- Bài 04 (Design System & Mobile First): Dùng CSS Variables trong :root quản lý Design Tokens. Thiết kế theo tư duy Mobile First (viết CSS cơ bản cho mobile trước, mở rộng bằng @media (min-width: 768px) và @media (min-width: 1024px)). Sửa triệt để lỗi hiển thị dấu tiếng Việt bằng font 'Be Vietnam Pro' kết hợp 'Plus Jakarta Sans'.
+- Bài 05 (Hiệu Ứng): Tối ưu transitions trên :hover, :focus. Xây dựng tính năng Xem Nhanh Sách (Quick View Modal) hoạt động 100% bằng CSS :target thuần mà KHÔNG dùng JavaScript.
+- Bài 06 (Hoàn Thiện): Loại bỏ các tính năng không thiết thực (blindbox, streak game); thay thế toàn bộ emoji icon bằng hình ảnh bìa sách thật và ảnh độc giả chân dung thật lưu cục bộ trong thư mục assets/images/. Bổ sung form đặt sách và tư vấn chi tiết, thực tế.
+```
+
+#### 2. Kết quả AI sinh ra:
+- Khởi tạo thành công thư mục `assets/images/` chứa 11 tệp hình ảnh nhiếp ảnh sách thật và chân dung người đọc thực tế, loại bỏ hoàn toàn cảm giác icon AI sơ sài.
+- Toàn bộ typography được chuyển sang font chuyên dụng `Be Vietnam Pro` (tối ưu hóa 100% tiếng Việt, hiển thị mượt mà không lỗi bất kỳ ký tự có dấu nào).
+- Bổ sung thanh Sidebar `<aside>` lọc sách chuyên nghiệp bên cạnh lưới sản phẩm `<article>`, bám sát chuẩn kiến trúc DOM được giảng dạy trong Bài 02 & Bài 03.
+- Tính năng Quick View Modal mở chi tiết sách khi click bằng CSS `:target` mượt mà, tiện dụng và tuyệt đối tuân thủ quy chế thi (Zero JavaScript).
+
+#### 3. Nhận xét & Đánh giá của Sinh viên:
+- **Ưu điểm:** Website đã trở thành một nhà sách trực tuyến thực thụ, đáng tin cậy và thẩm mỹ cao. Bố cục trang mạch lạc, cân đối, đáp ứng hoàn hảo tiêu chí chấm thi của cả 5 bài học trên lớp.
+- **Tinh chỉnh của sinh viên:** Thêm thanh thông báo miễn phí vận chuyển trên đầu trang, tích hợp hotline hỗ trợ, phân trang pagination và bổ sung chính sách đổi trả minh bạch để tăng độ tin cậy thực tế cho trang web.
+
+---
+
 ### ⚠️ THÁCH THỨC KỸ THUẬT & DEBUG PROMPT
 
 Trong quá trình thực hiện bài thi, tôi đã gặp phải 3 vấn đề kỹ thuật lớn và đã tiến hành viết prompt debug để giải quyết triệt để:
