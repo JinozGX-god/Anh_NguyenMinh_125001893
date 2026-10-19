@@ -130,7 +130,33 @@ Hoàn thiện tính thẩm mỹ và khả năng hiển thị đa thiết bị:
 
 #### 3. Nhận xét & Đánh giá của Sinh viên:
 - **Ưu điểm:** Giao diện co giãn chuẩn responsive từ màn hình máy tính đến màn hình điện thoại 375px mà không bị thanh cuộn ngang khó chịu.
-- **Tinh chỉnh của sinh viên:** Trên thiết bị di động, chuyển kệ sách Bestseller thành dạng cuộn ngang (`overflow-x: auto` với `-webkit-overflow-scrolling: touch`) để người dùng vuốt chạm tiện lợi.
+- **Nhận xét & Tinh chỉnh của sinh viên:** Trên thiết bị di động, chuyển kệ sách Bestseller thành dạng cuộn ngang (`overflow-x: auto` với `-webkit-overflow-scrolling: touch`) để người dùng vuốt chạm tiện lợi.
+
+---
+
+### 🔄 Lần 5: Đột phá UI/UX theo phong cách Gen Z Trendy & Trải Nghiệm Tương Tác Đa Chiều
+
+#### 1. Prompt đã dùng:
+```text
+Website phiên bản đầu tiên còn đơn giản và hơi ít nội dung, font chữ có chân kiểu vintage chưa đủ thu hút giới trẻ. Hãy nâng cấp toàn diện:
+1. Phong cách thiết kế: Chuyển sang Dark Mode thời thượng (#090d16) kết hợp các quả cầu ánh sáng mờ Ambient Glow đa sắc (Electric Violet #8b5cf6, Cyan #06b6d4, Rose Pink #ec4899).
+2. Typography: Đổi toàn bộ font chữ sang bộ đôi hiện đại, cực kỳ nịnh mắt: 'Outfit' (tiêu đề tròn trịa, hiện đại) và 'Plus Jakarta Sans' (nội dung thanh thoát, chuẩn công nghệ).
+3. Làm giàu nội dung & Tính năng:
+   - Thêm Bento Grid đa tầng giới thiệu đặc quyền: Audiobook AI, Hộp mù Blind Box, Cày Streak 28 ngày.
+   - Thêm tính năng 3D Virtual Open Book Preview: Lật mở 2 trang sách 3D thực tế bằng Pure CSS.
+   - Nâng cấp 3D Flip Card thành Holographic Foil phản quang shimmer lấp lánh chủ đề BookTok Trending.
+   - Thêm Flash Deal giờ vàng với đồng hồ countdown boxes, thanh Marquee chạy chữ vô tận và Reviews phong cách Bookstagram mạng xã hội.
+4. Ràng buộc: Giữ trọn vẹn 100% chuẩn Semantic HTML5, không phát sinh lỗi layout và tuyệt đối KHÔNG dùng JavaScript tự viết.
+```
+
+#### 2. Kết quả AI sinh ra:
+- Khung giao diện lột xác hoàn toàn, mang đậm hơi thở hiện đại, nịnh mắt và tràn đầy năng lượng của giới trẻ.
+- Tích hợp thành công hiệu ứng lật mở 2 trang sách 3D (`.book-3d` với `.book-page--left` và `.book-page--right` có hiệu ứng đổ bóng ở gáy sách).
+- Hệ thống Bento Grid với hiệu ứng sóng âm nhạc động (`.audio-wave`) và ngọn lửa streak (`.streak-flame`) tạo ấn tượng thị giác mạnh mẽ.
+
+#### 3. Nhận xét & Đánh giá của Sinh viên:
+- **Ưu điểm:** Giao diện cuốn hút vượt bậc, tạo ấn tượng "WOW" ngay từ giây đầu tiên. Các chi tiết mô phỏng mạng xã hội và BookTok đánh trúng tâm lý người trẻ.
+- **Tinh chỉnh của sinh viên:** Cân chỉnh lại kích thước trang sách 3D trên màn hình điện thoại dưới 768px (`flex-direction: column`) để tránh vỡ chữ, đồng thời tăng độ tương phản của text trên nền kính mờ để đảm bảo khả năng đọc chuẩn Accessibility.
 
 ---
 
