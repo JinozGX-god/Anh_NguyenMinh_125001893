@@ -1,95 +1,96 @@
 /* ========================================================================
-   BookVerse — Nhà Sách Trực Tuyến & Tri Thức Số
-   Được xây dựng bám sát 100% 5 Bài Học Học Phần Thiết Kế Web (ĐH Lạc Hồng):
-   - Bài 02: Tư Duy Semantic HTML5 & Cấu Trúc Web Hệ Thống (header, nav, main, aside, article, footer)
-   - Bài 03: CSS Layout System (Flexbox & CSS Grid)
-   - Bài 04: Design System & Tư Duy Responsive (Mobile First)
-   - Bài 05: Hiệu Ứng Chuyển Động & Thư Viện Hiệu Ứng (CSS Animations & Transitions)
-   - Bài 06: Hoàn Thiện Giao Diện & Tối Ưu Hóa Sản Phẩm (Refactoring & Typography Tiếng Việt)
-
+   BookVerse — Vũ Trụ Sách Thế Hệ Mới (Gen Z Edition)
+   Kết hợp hoàn hảo: 
+   - Phong cách Trẻ Trung, Nịnh Mắt, Dark Mode, Neon Glow & Glassmorphism
+   - 100% Ảnh Bìa Sách & Độc Giả Thật (Không dùng emoji AI)
+   - Bộ font Be Vietnam Pro chuẩn 100% Tiếng Việt không lỗi dấu
+   - Kỹ thuật chuẩn 5 bài học: Semantic HTML5, Flexbox & Grid, Mobile First, CSS 3D
    Tác giả: Nguyễn Minh Anh (MSSV: 125001893 — Lớp: 25AI111)
    ======================================================================== */
 
 /* ========================================================================
    1. DESIGN SYSTEM & CSS VARIABLES (BÀI 04)
-   Quản lý bảng màu, kiểu chữ, khoảng cách và bóng đổ nhất quán
    ======================================================================== */
 :root {
-    /* === BẢNG MÀU CHÍNH HÃNG (TIN CẬY, HIỆN ĐẠI, DỊU MẮT) === */
-    --clr-primary: #1e3a8a;          /* Deep Classic Blue */
-    --clr-primary-hover: #1d4ed8;    /* Vibrant Blue */
-    --clr-primary-light: #eff6ff;    /* Ice Blue Background */
-    --clr-accent: #ea580c;           /* Warm Orange Accent */
-    --clr-accent-hover: #c2410c;
-    --clr-accent-light: #fff7ed;
-    --clr-success: #16a34a;          /* Green tag */
-    --clr-warning: #eab308;
+    /* === BẢNG MÀU DARK ELEVATION THỜI THƯỢNG === */
+    --bg-base: #090d16;
+    --bg-card: rgba(18, 24, 38, 0.75);
+    --bg-card-hover: rgba(28, 38, 60, 0.9);
+    --bg-glass: rgba(255, 255, 255, 0.04);
+    --bg-glass-elevated: rgba(255, 255, 255, 0.08);
+    --border-glass: rgba(255, 255, 255, 0.1);
+    --border-glass-glow: rgba(139, 92, 246, 0.4);
 
-    /* === MÀU NỀN & BỀ MẶT (SURFACE ELEVATION) === */
-    --bg-body: #f8fafc;              /* Slate 50 nhã nhặn, chống mỏi mắt */
-    --bg-surface: #ffffff;           /* Card trắng tinh khiết */
-    --bg-surface-alt: #f1f5f9;       /* Slate 100 */
-    --bg-header-top: #0f172a;        /* Dark Slate */
-    --bg-footer: #0b1329;
+    /* === VIBRANT ACCENT GRADIENTS (TRENDY & EYE-CATCHING) === */
+    --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #f43f5e 100%);
+    --gradient-cyan: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+    --gradient-emerald: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+    --gradient-amber: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
 
-    /* === MÀU CHỮ (TEXT CONTRAST) === */
-    --text-heading: #0f172a;         /* Slate 900 */
-    --text-body: #334155;            /* Slate 700 */
-    --text-muted: #64748b;           /* Slate 500 */
-    --text-light: #94a3b8;           /* Slate 400 */
+    /* === SINGLE COLORS === */
+    --clr-violet: #8b5cf6;
+    --clr-pink: #ec4899;
+    --clr-cyan: #06b6d4;
+    --clr-emerald: #10b981;
+    --clr-amber: #f59e0b;
+    --clr-red: #ef4444;
+
+    /* === TEXT COLORS === */
     --text-white: #ffffff;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
 
-    /* === TYPOGRAPHY (CHUẨN 100% TIẾNG VIỆT KHÔNG LỖI DẤU) === */
+    /* === TYPOGRAPHY (100% TIẾNG VIỆT CHUẨN) === */
     --ff-heading: 'Plus Jakarta Sans', 'Be Vietnam Pro', sans-serif;
     --ff-body: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
 
-    /* Cỡ chữ thang tỉ lệ (Typography Scale) */
-    --fs-hero: clamp(2rem, 4.5vw, 3.2rem);
-    --fs-h2: clamp(1.6rem, 2.8vw, 2.2rem);
-    --fs-h3: clamp(1.15rem, 1.8vw, 1.35rem);
+    /* Font Sizes */
+    --fs-hero: clamp(2.4rem, 5.2vw, 4.4rem);
+    --fs-h2: clamp(1.7rem, 3.2vw, 2.6rem);
+    --fs-h3: clamp(1.15rem, 2vw, 1.45rem);
     --fs-body: 0.975rem;
     --fs-small: 0.875rem;
     --fs-xs: 0.75rem;
 
-    /* Trọng số font */
-    --fw-regular: 400;
-    --fw-medium: 500;
-    --fw-semibold: 600;
+    /* Font Weights */
+    --fw-black: 900;
+    --fw-extrabold: 800;
     --fw-bold: 700;
-    --fw-black: 800;
+    --fw-semibold: 600;
+    --fw-medium: 500;
+    --fw-regular: 400;
 
-    /* === KHOẢNG CÁCH (SPACING SYSTEM - BÀI 03/04) === */
-    --space-2xs: 0.25rem;
+    /* === SPACING & RADIUS === */
     --space-xs: 0.5rem;
     --space-sm: 0.75rem;
     --space-md: 1rem;
     --space-lg: 1.5rem;
     --space-xl: 2rem;
     --space-2xl: 3.5rem;
-    --space-section: 4.5rem;
+    --section-gap: 5.5rem;
     --container-max: 1240px;
 
-    /* === ĐỘ BO GÓC (BORDER RADIUS) === */
-    --radius-sm: 6px;
-    --radius-md: 10px;
-    --radius-lg: 16px;
-    --radius-xl: 24px;
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
     --radius-pill: 9999px;
 
-    /* === BÓNG ĐỔ (ELEVATION SHADOWS) === */
-    --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.06);
-    --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-    --shadow-card-hover: 0 16px 24px -4px rgba(0, 0, 0, 0.1), 0 8px 12px -6px rgba(0, 0, 0, 0.06);
-    --shadow-modal: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    /* === SHADOWS & NEON GLOW === */
+    --shadow-card: 0 12px 36px -8px rgba(0, 0, 0, 0.6);
+    --shadow-card-hover: 0 20px 45px -5px rgba(0, 0, 0, 0.8);
+    --glow-violet: 0 0 35px rgba(139, 92, 246, 0.35);
+    --glow-pink: 0 0 35px rgba(236, 72, 153, 0.35);
+    --glow-cyan: 0 0 35px rgba(6, 182, 212, 0.35);
 
-    /* === HIỆU ỨNG CHUYỂN ĐỘNG (BÀI 05) === */
-    --transition-fast: all 0.2s ease;
-    --transition-normal: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    /* === TRANSITIONS === */
+    --ease-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* ========================================================================
-   2. CSS RESET & CĂN BẢN (MOBILE FIRST - BÀI 04)
+   2. RESET & BASE (MOBILE FIRST - BÀI 04)
    ======================================================================== */
 *,
 *::before,
@@ -102,18 +103,20 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 85px;
+    background-color: var(--bg-base);
+    color: var(--text-primary);
     font-size: 16px;
 }
 
 body {
     font-family: var(--ff-body);
     font-size: var(--fs-body);
-    font-weight: var(--fw-regular);
     line-height: 1.65;
-    color: var(--text-body);
-    background-color: var(--bg-body);
-    -webkit-font-smoothing: antialiased;
+    background-color: var(--bg-base);
+    color: var(--text-primary);
     overflow-x: hidden;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
 }
 
 img {
@@ -125,7 +128,11 @@ img {
 a {
     color: inherit;
     text-decoration: none;
-    transition: var(--transition-fast);
+    transition: var(--ease-smooth);
+}
+
+ul, ol {
+    list-style: none;
 }
 
 button, input, select, textarea {
@@ -133,30 +140,98 @@ button, input, select, textarea {
     font-size: inherit;
 }
 
-ul, ol {
-    list-style: none;
+/* Ambient Glow Orbs Nền Neon */
+.ambient-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
 }
 
-/* Tiêu đề chuẩn ngữ nghĩa */
-h1, h2, h3, h4 {
-    font-family: var(--ff-heading);
-    color: var(--text-heading);
-    font-weight: var(--fw-bold);
-    line-height: 1.3;
-    letter-spacing: -0.02em;
+.ambient-glow--1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.35), transparent 70%);
+    top: -100px;
+    left: -150px;
 }
 
-.highlight {
-    color: var(--clr-primary);
+.ambient-glow--2 {
+    width: 550px;
+    height: 550px;
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.3), transparent 70%);
+    top: 500px;
+    right: -100px;
+}
+
+.ambient-glow--3 {
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.25), transparent 70%);
+    top: 1800px;
+    left: 10%;
 }
 
 .container {
     width: 100%;
     max-width: var(--container-max);
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: var(--space-md);
-    padding-right: var(--space-md);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.section {
+    padding: var(--section-gap) 0;
+    position: relative;
+}
+
+/* Typography Helpers */
+h1, h2, h3, h4 {
+    font-family: var(--ff-heading);
+    letter-spacing: -0.03em;
+    color: var(--text-white);
+    font-weight: var(--fw-bold);
+    line-height: 1.25;
+}
+
+.gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.section__header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 3.5rem auto;
+}
+
+.section__eyebrow {
+    display: inline-block;
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-extrabold);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--clr-cyan);
+    background: rgba(6, 182, 212, 0.1);
+    border: 1px solid rgba(6, 182, 212, 0.25);
+    padding: 0.35rem 1rem;
+    border-radius: var(--radius-pill);
+    margin-bottom: 1rem;
+}
+
+.section__title {
+    font-size: var(--fs-h2);
+    margin-bottom: 0.85rem;
+}
+
+.section__desc {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
 }
 
 .visually-hidden {
@@ -171,7 +246,7 @@ h1, h2, h3, h4 {
 }
 
 /* ========================================================================
-   3. NÚT BẤM & THÀNH PHẦN TÁI SỬ DỤNG (BÀI 03/05)
+   3. BUTTONS (BÀI 03/05)
    ======================================================================== */
 .btn {
     display: inline-flex;
@@ -181,120 +256,96 @@ h1, h2, h3, h4 {
     font-family: var(--ff-heading);
     font-weight: var(--fw-semibold);
     font-size: 0.95rem;
-    padding: 0.75rem 1.6rem;
-    border-radius: var(--radius-md);
+    padding: 0.85rem 1.8rem;
+    border-radius: var(--radius-pill);
     cursor: pointer;
-    border: 2px solid transparent;
-    transition: var(--transition-fast);
+    border: none;
+    transition: var(--ease-smooth);
 }
 
-.btn-primary {
-    background-color: var(--clr-primary);
+.btn--primary {
+    background: var(--gradient-primary);
     color: var(--text-white);
-    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.25);
+    box-shadow: 0 10px 25px -5px rgba(236, 72, 153, 0.45);
 }
 
-.btn-primary:hover {
-    background-color: var(--clr-primary-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 18px rgba(30, 58, 138, 0.35);
+.btn--primary:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 35px -5px rgba(236, 72, 153, 0.6);
 }
 
-.btn-outline {
-    background-color: transparent;
-    border-color: var(--clr-primary);
-    color: var(--clr-primary);
+.btn--glass {
+    background: var(--bg-glass-elevated);
+    color: var(--text-white);
+    border: 1px solid var(--border-glass);
+    backdrop-filter: blur(12px);
 }
 
-.btn-outline:hover {
-    background-color: var(--clr-primary-light);
-    transform: translateY(-2px);
+.btn--glass:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
 }
 
-.btn-card {
+.btn--card {
     width: 100%;
-    background-color: var(--clr-primary-light);
-    color: var(--clr-primary);
-    font-weight: var(--fw-bold);
-    padding: 0.65rem;
+    background: rgba(139, 92, 246, 0.15);
+    color: #c4b5fd;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    padding: 0.7rem;
     border-radius: var(--radius-md);
     font-size: 0.88rem;
-    border: 1px solid rgba(30, 58, 138, 0.15);
-}
-
-.btn-card:hover {
-    background-color: var(--clr-primary);
-    color: var(--text-white);
-}
-
-.badge-pill {
-    display: inline-block;
-    font-size: var(--fs-xs);
     font-weight: var(--fw-bold);
-    color: var(--clr-primary);
-    background-color: var(--clr-primary-light);
-    padding: 0.35rem 0.85rem;
-    border-radius: var(--radius-pill);
-    border: 1px solid rgba(30, 58, 138, 0.15);
-    margin-bottom: var(--space-sm);
-}
-
-.section-title-wrap {
     text-align: center;
-    max-width: 650px;
-    margin: 0 auto var(--space-2xl) auto;
 }
 
-.sub-title {
-    display: inline-block;
-    font-size: var(--fs-xs);
-    font-weight: var(--fw-bold);
-    color: var(--clr-accent);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 0.4rem;
+.btn--card:hover {
+    background: var(--gradient-primary);
+    color: #fff;
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(236, 72, 153, 0.4);
 }
 
-.main-title {
-    font-size: var(--fs-h2);
-    margin-bottom: 0.75rem;
-}
-
-.title-desc {
-    color: var(--text-muted);
-    font-size: 1rem;
+.btn--full {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.05rem;
 }
 
 /* ========================================================================
-   4. HEADER & NAVBAR (BÀI 02 & BÀI 03)
+   4. HEADER & NAVIGATION (BÀI 02 & BÀI 03)
    ======================================================================== */
-.site-header {
-    position: sticky;
-    top: 0;
-    z-index: 90;
-    background-color: var(--bg-surface);
-    box-shadow: var(--shadow-subtle);
-}
-
-.top-notice {
-    background-color: var(--bg-header-top);
+.top-banner {
+    background: linear-gradient(90deg, #8b5cf6, #ec4899, #06b6d4);
     color: var(--text-white);
     font-size: var(--fs-xs);
+    font-weight: var(--fw-semibold);
     padding: 0.45rem 0;
 }
 
-.notice-content {
+.top-banner__content {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.notice-phone a {
-    color: #93c5fd;
-    font-weight: var(--fw-bold);
+.top-banner__link {
+    color: #fff;
+    font-weight: var(--fw-extrabold);
+    text-decoration: underline;
 }
 
-.navbar {
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(9, 13, 22, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-glass);
+}
+
+.nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -302,342 +353,518 @@ h1, h2, h3, h4 {
     gap: var(--space-md);
 }
 
-.brand-logo {
+.nav__logo {
     display: flex;
     align-items: center;
     gap: 0.4rem;
     font-family: var(--ff-heading);
-    font-size: 1.45rem;
+    font-size: 1.5rem;
     font-weight: var(--fw-black);
-    color: var(--text-heading);
+    color: var(--text-white);
     flex-shrink: 0;
 }
 
-.brand-icon {
-    font-size: 1.5rem;
+.nav__logo-icon {
+    font-size: 1.4rem;
+    color: var(--clr-amber);
 }
 
-/* Thanh tìm kiếm thực tế */
+.nav__logo-tag {
+    font-size: 0.65rem;
+    font-weight: var(--fw-extrabold);
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-pill);
+    background: var(--gradient-primary);
+    color: var(--text-white);
+    margin-left: 0.2rem;
+}
+
+/* Search bar Spotlight Ctrl K */
 .nav-search {
-    display: none; /* Hiển thị từ tablet trở lên */
+    display: none;
     flex: 1;
-    max-width: 420px;
+    max-width: 380px;
     position: relative;
 }
 
 .nav-search input {
     width: 100%;
-    padding: 0.55rem 2.8rem 0.55rem 1rem;
+    padding: 0.6rem 4rem 0.6rem 2.4rem;
     border-radius: var(--radius-pill);
-    border: 1px solid #cbd5e1;
-    background-color: var(--bg-body);
+    border: 1px solid var(--border-glass);
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
     font-size: 0.88rem;
     outline: none;
-    transition: var(--transition-fast);
+    transition: var(--ease-smooth);
 }
 
 .nav-search input:focus {
-    border-color: var(--clr-primary);
-    background-color: #fff;
-    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+    border-color: var(--clr-violet);
+    box-shadow: var(--glow-violet);
+    background: rgba(255, 255, 255, 0.08);
 }
 
-.nav-search button {
+.search-icon {
     position: absolute;
-    right: 6px;
+    left: 12px;
     top: 50%;
     transform: translateY(-50%);
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 0.95rem;
-    padding: 0.2rem 0.5rem;
+    font-size: 0.85rem;
+    opacity: 0.7;
 }
 
-/* Mobile Hamburger Menu (CSS-Only Checkbox Hack) */
-.menu-checkbox {
+.search-badge {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.68rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    font-weight: var(--fw-semibold);
+}
+
+/* Mobile Hamburger Menu */
+.nav__checkbox {
     display: none;
 }
 
-.menu-btn {
+.nav__hamburger {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 26px;
     height: 18px;
     cursor: pointer;
-    z-index: 100;
+    z-index: 110;
 }
 
-.menu-btn .bar {
+.nav__hamburger span {
     display: block;
     height: 2.5px;
     width: 100%;
-    background-color: var(--text-heading);
+    background-color: var(--text-white);
     border-radius: 4px;
-    transition: var(--transition-normal);
+    transition: var(--ease-smooth);
 }
 
-.nav-links {
+.nav__menu {
     position: fixed;
     top: 72px;
     left: 0;
     width: 100%;
-    background-color: var(--bg-surface);
+    background: rgba(9, 13, 22, 0.96);
+    backdrop-filter: blur(25px);
     display: flex;
     flex-direction: column;
-    padding: var(--space-xl) var(--space-md);
-    gap: var(--space-md);
-    border-bottom: 1px solid #e2e8f0;
-    box-shadow: var(--shadow-modal);
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+    border-bottom: 1px solid var(--border-glass);
     transform: translateY(-160%);
-    transition: transform 0.35s ease;
-    z-index: 95;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 99;
 }
 
-.nav-item {
-    font-weight: var(--fw-semibold);
-    font-size: 1rem;
-    color: var(--text-body);
+.nav__link {
+    font-size: 0.95rem;
+    font-weight: var(--fw-medium);
+    color: var(--text-secondary);
+    transition: var(--ease-smooth);
 }
 
-.nav-item:hover,
-.nav-item.active {
-    color: var(--clr-primary);
+.nav__link:hover,
+.nav__link.active {
+    color: var(--text-white);
 }
 
-.nav-btn {
-    background-color: var(--clr-primary);
-    color: var(--text-white) !important;
-    padding: 0.65rem 1.25rem;
-    border-radius: var(--radius-md);
+.nav__link--cta {
+    background: var(--gradient-primary);
+    color: #fff !important;
+    padding: 0.65rem 1.4rem;
+    border-radius: var(--radius-pill);
     text-align: center;
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.3);
 }
 
-#menu-toggle:checked ~ .nav-links {
+#nav-toggle:checked ~ .nav__menu {
     transform: translateY(0);
 }
 
-#menu-toggle:checked ~ .menu-btn .bar:nth-child(1) {
+#nav-toggle:checked ~ .nav__hamburger span:nth-child(1) {
     transform: translateY(7.5px) rotate(45deg);
 }
-#menu-toggle:checked ~ .menu-btn .bar:nth-child(2) {
+#nav-toggle:checked ~ .nav__hamburger span:nth-child(2) {
     opacity: 0;
 }
-#menu-toggle:checked ~ .menu-btn .bar:nth-child(3) {
+#nav-toggle:checked ~ .nav__hamburger span:nth-child(3) {
     transform: translateY(-7.5px) rotate(-45deg);
 }
 
 /* ========================================================================
-   5. HERO SECTION (BÀI 03: FLEXBOX LAYOUT)
+   5. HERO SECTION: 3D FLOATING SHOWCASE VỚI ẢNH BÌA THẬT
    ======================================================================== */
-.hero-section {
-    padding: var(--space-2xl) 0;
-    background: linear-gradient(180deg, #ffffff 0%, var(--bg-body) 100%);
-    border-bottom: 1px solid #e2e8f0;
+.hero {
+    padding: 4.5rem 0 3.5rem 0;
+    position: relative;
 }
 
-.hero-container {
+.hero__grid {
     display: flex;
     flex-direction: column;
-    gap: var(--space-xl);
+    gap: 3.5rem;
+    align-items: center;
+    text-align: center;
+}
+
+.hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-semibold);
+    color: var(--text-white);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border-glass);
+    padding: 0.45rem 1rem;
+    border-radius: var(--radius-pill);
+    margin-bottom: 1.5rem;
+}
+
+.badge-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--clr-emerald);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--clr-emerald);
+}
+
+.hero__title {
+    font-size: var(--fs-hero);
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+}
+
+.hero__subtitle {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    max-width: 620px;
+}
+
+.hero__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.hero__social-proof {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.avatar-stack {
+    display: flex;
     align-items: center;
 }
 
-.hero-content {
-    text-align: center;
+.avatar-img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--bg-base);
+    margin-left: -10px;
 }
 
-.hero-heading {
-    font-size: var(--fs-hero);
-    margin-bottom: var(--space-md);
+.avatar-img:first-child {
+    margin-left: 0;
 }
 
-.hero-description {
-    font-size: 1.05rem;
-    color: var(--text-muted);
-    max-width: 600px;
-    margin: 0 auto var(--space-xl) auto;
-}
-
-.hero-buttons {
+.avatar-more {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #334155;
     display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-    margin-bottom: var(--space-xl);
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    font-weight: var(--fw-bold);
+    color: #fff;
+    border: 2px solid var(--bg-base);
+    margin-left: -10px;
 }
 
-.hero-trust {
+.social-proof__desc {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    text-align: left;
+}
+
+.social-proof__desc strong {
+    color: #fff;
+}
+
+/* Hero Visual: 3D Card Lơ Lửng Dùng Ảnh Bìa Thật */
+.hero__visual {
+    width: 100%;
+    max-width: 420px;
+}
+
+.hero-3d-wrapper {
+    position: relative;
+    perspective: 1200px;
     display: flex;
     justify-content: center;
-    gap: var(--space-xl);
-    padding-top: var(--space-lg);
-    border-top: 1px solid #e2e8f0;
+    align-items: center;
+    min-height: 480px;
 }
 
-.trust-item {
-    display: flex;
-    flex-direction: column;
-}
-
-.trust-item strong {
-    font-family: var(--ff-heading);
-    font-size: 1.4rem;
-    color: var(--clr-primary);
-    font-weight: var(--fw-black);
-}
-
-.trust-item span {
-    font-size: var(--fs-xs);
-    color: var(--text-muted);
-}
-
-.hero-visual {
-    width: 100%;
-    max-width: 520px;
-}
-
-.hero-figure {
-    position: relative;
+.hero-book-3d {
+    width: 320px;
+    background: linear-gradient(145deg, #182238, #0f1728);
     border-radius: var(--radius-xl);
-    overflow: hidden;
-    box-shadow: var(--shadow-card-hover);
-    border: 4px solid var(--bg-surface);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 1.8rem;
+    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9),
+                0 0 50px rgba(139, 92, 246, 0.3);
+    transform: rotateY(-10deg) rotateX(8deg);
+    animation: heroFloat 6s ease-in-out infinite;
+    position: relative;
+    text-align: left;
+    transition: var(--ease-spring);
 }
 
-.hero-img {
+@keyframes heroFloat {
+    0%, 100% {
+        transform: rotateY(-10deg) rotateX(8deg) translateY(0);
+    }
+    50% {
+        transform: rotateY(-6deg) rotateX(4deg) translateY(-15px);
+    }
+}
+
+.hero-book-3d:hover {
+    transform: rotateY(0) rotateX(0) scale(1.03);
+    box-shadow: 0 30px 80px -10px rgba(139, 92, 246, 0.5);
+}
+
+.hero-book-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: var(--fw-extrabold);
+    color: #fb7185;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+}
+
+.hero-book-img-wrap {
     width: 100%;
-    height: 340px;
-    object-fit: cover;
-    transition: var(--transition-normal);
-}
-
-.hero-figure:hover .hero-img {
-    transform: scale(1.04);
-}
-
-.hero-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: linear-gradient(to top, rgba(15, 23, 42, 0.85), transparent);
-    color: var(--text-white);
-    font-size: var(--fs-xs);
-    font-weight: var(--fw-medium);
-    padding: 1.5rem 1rem 0.75rem 1rem;
-    text-align: center;
-}
-
-/* ========================================================================
-   6. SERVICES SECTION (BÀI 03: CSS GRID)
-   ======================================================================== */
-.services-section {
-    padding: var(--space-xl) 0;
-    background-color: var(--bg-surface);
-    border-bottom: 1px solid #e2e8f0;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
-}
-
-.service-box {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-md);
-    padding: var(--space-md);
+    height: 220px;
     border-radius: var(--radius-md);
-    background-color: var(--bg-body);
-    border: 1px solid #e2e8f0;
-    transition: var(--transition-fast);
+    overflow: hidden;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
-.service-box:hover {
-    border-color: var(--clr-primary);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-card);
+.hero-book-real-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--ease-smooth);
 }
 
-.service-icon {
-    font-size: 1.8rem;
-    flex-shrink: 0;
+.hero-book-3d:hover .hero-book-real-img {
+    transform: scale(1.06);
 }
 
-.service-text h3 {
-    font-size: 1rem;
-    margin-bottom: 0.25rem;
+.hero-book-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.35rem;
 }
 
-.service-text p {
+.hero-book-author {
     font-size: 0.85rem;
-    color: var(--text-muted);
-    line-height: 1.5;
+    color: var(--text-secondary);
+    margin-bottom: 0.85rem;
 }
 
-/* ========================================================================
-   7. CATALOG & SIDEBAR (BÀI 02: <aside> & BÀI 03: GRID 2 CHIỀU)
-   ======================================================================== */
-.catalog-section {
-    padding: var(--space-section) 0;
-}
-
-.catalog-layout {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-xl);
-}
-
-/* SIDEBAR: Thẻ <aside> theo Bài 02 */
-.catalog-sidebar {
+.hero-book-badges {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
+    flex-wrap: wrap;
+    gap: 0.4rem;
 }
 
-.filter-card {
-    background-color: var(--bg-surface);
-    border: 1px solid #e2e8f0;
-    border-radius: var(--radius-lg);
-    padding: var(--space-lg);
-    box-shadow: var(--shadow-subtle);
+.badge-mini {
+    font-size: 0.72rem;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-primary);
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-pill);
 }
 
-.filter-title {
-    font-size: 1.05rem;
-    margin-bottom: var(--space-md);
-    padding-bottom: var(--space-xs);
-    border-bottom: 2px solid var(--clr-primary-light);
-}
-
-.filter-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-}
-
-.filter-link {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-    color: var(--text-body);
-    padding: 0.35rem 0.5rem;
-    border-radius: var(--radius-sm);
-    transition: var(--transition-fast);
-}
-
-.filter-link:hover,
-.filter-link.active {
-    background-color: var(--clr-primary-light);
-    color: var(--clr-primary);
+.badge-mini--hot {
+    background: rgba(239, 68, 68, 0.2);
+    color: #f87171;
     font-weight: var(--fw-bold);
 }
 
-.filter-link span {
+/* Floating Badges */
+.float-badge {
+    position: absolute;
+    background: rgba(18, 24, 38, 0.88);
+    border: 1px solid var(--border-glass);
+    backdrop-filter: blur(14px);
+    padding: 0.6rem 1rem;
+    border-radius: var(--radius-md);
+    font-size: 0.82rem;
+    font-weight: var(--fw-semibold);
+    color: var(--text-white);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: var(--shadow-card);
+    z-index: 2;
+}
+
+.float-badge--1 { top: 20px; right: 0; }
+.float-badge--2 { bottom: 40px; left: -10px; }
+.float-badge--3 { bottom: -15px; right: 20px; }
+
+/* ========================================================================
+   6. MARQUEE BANNER
+   ======================================================================== */
+.marquee-strip {
+    padding: 1.2rem 0;
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid var(--border-glass);
+    border-bottom: 1px solid var(--border-glass);
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee-content {
+    display: inline-flex;
+    gap: 2.5rem;
+    font-family: var(--ff-heading);
+    font-size: 0.92rem;
+    font-weight: var(--fw-extrabold);
+    letter-spacing: 0.12em;
+    color: var(--text-secondary);
+    animation: marqueeRoll 25s linear infinite;
+}
+
+@keyframes marqueeRoll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* ========================================================================
+   7. SERVICES GRID (BÀI 03: CSS GRID)
+   ======================================================================== */
+.services__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+}
+
+.service-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-lg);
+    padding: 1.8rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    backdrop-filter: blur(16px);
+    transition: var(--ease-smooth);
+}
+
+.service-card:hover {
+    border-color: rgba(139, 92, 246, 0.4);
+    transform: translateY(-4px);
+    box-shadow: var(--glow-violet);
+}
+
+.service-card__icon {
+    font-size: 2.2rem;
+    flex-shrink: 0;
+}
+
+.service-card__body h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.35rem;
+}
+
+.service-card__body p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* ========================================================================
+   8. CATALOG & SIDEBAR (BÀI 02: <aside> & BÀI 03: GRID 2 CHIỀU)
+   ======================================================================== */
+.catalog__layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+/* SIDEBAR: Thẻ <aside> theo Bài 02 */
+.catalog__sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.filter-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-lg);
+    padding: 1.6rem;
+    backdrop-filter: blur(16px);
+}
+
+.filter-box__title {
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-glass);
+}
+
+.filter-box__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.filter-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    padding: 0.4rem 0.6rem;
+    border-radius: var(--radius-sm);
+}
+
+.filter-item:hover,
+.filter-item.active {
+    background: rgba(139, 92, 246, 0.15);
+    color: #fff;
+    font-weight: var(--fw-bold);
+}
+
+.filter-item .count {
+    font-size: 0.78rem;
     color: var(--text-muted);
-    font-size: 0.8rem;
 }
 
 .filter-check {
@@ -645,166 +872,160 @@ h1, h2, h3, h4 {
     align-items: center;
     gap: 0.5rem;
     font-size: 0.88rem;
-    color: var(--text-body);
+    color: var(--text-secondary);
     cursor: pointer;
 }
 
 .filter-check input {
     cursor: pointer;
-    accent-color: var(--clr-primary);
+    accent-color: var(--clr-violet);
 }
 
-.sidebar-promo {
-    background: linear-gradient(135deg, #1e3a8a, #2563eb);
-    color: var(--text-white);
-    padding: var(--space-lg);
+.sidebar-badge-promo {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2));
+    border: 1px solid rgba(236, 72, 153, 0.35);
+    padding: 1.5rem;
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-card);
 }
 
-.sidebar-promo h4 {
+.sidebar-badge-promo h4 {
+    font-size: 1.05rem;
     color: #fff;
-    font-size: 1.1rem;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.35rem;
 }
 
-.sidebar-promo p {
-    font-size: 0.88rem;
-    color: #dbeafe;
+.sidebar-badge-promo p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
 }
 
 /* PRODUCT GRID: Thẻ <article> theo Bài 02 */
 .products-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-lg);
+    gap: 1.8rem;
 }
 
-.book-card {
-    background-color: var(--bg-surface);
+.product-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
     border-radius: var(--radius-lg);
-    border: 1px solid #e2e8f0;
     overflow: hidden;
-    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(16px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: var(--transition-normal);
-    position: relative;
+    transition: var(--ease-smooth);
+    box-shadow: var(--shadow-card);
 }
 
-.book-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-card-hover);
-    border-color: #cbd5e1;
+.product-card:hover {
+    border-color: rgba(139, 92, 246, 0.45);
+    transform: translateY(-6px);
+    box-shadow: var(--glow-violet);
 }
 
-.book-cover-wrap {
+.product-card__thumb {
     position: relative;
     height: 270px;
-    background-color: #f1f5f9;
+    background: #0d1322;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--space-md);
+    padding: 1.2rem;
 }
 
-.book-cover-img {
+.product-img {
     height: 100%;
     width: auto;
     max-width: 100%;
     object-fit: contain;
     border-radius: 4px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-    transition: var(--transition-normal);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    transition: var(--ease-smooth);
 }
 
-.book-card:hover .book-cover-img {
-    transform: scale(1.06);
+.product-card:hover .product-img {
+    transform: scale(1.08) rotate(1deg);
 }
 
-.badge-discount {
+.product-badge {
     position: absolute;
     top: 12px;
     left: 12px;
-    background-color: #dc2626;
-    color: #fff;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: var(--fw-black);
-    padding: 0.25rem 0.55rem;
-    border-radius: var(--radius-sm);
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-pill);
     z-index: 2;
 }
 
-.badge-hot {
-    background-color: #ea580c;
-}
+.product-badge--red { background: #ef4444; color: #fff; }
+.product-badge--orange { background: #ea580c; color: #fff; }
+.product-badge--cyan { background: #06b6d4; color: #042f2e; }
+.product-badge--green { background: #10b981; color: #fff; }
 
-.badge-new {
-    background-color: #16a34a;
-}
-
-.book-overlay {
+.product-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: var(--space-md);
-    background: linear-gradient(to top, rgba(15, 23, 42, 0.7), transparent);
+    padding: 1rem;
+    background: linear-gradient(to top, rgba(9, 13, 22, 0.9), transparent);
     display: flex;
     justify-content: center;
     opacity: 0;
-    transform: translateY(10px);
-    transition: var(--transition-fast);
+    transform: translateY(12px);
+    transition: var(--ease-smooth);
 }
 
-.book-card:hover .book-overlay {
+.product-card:hover .product-overlay {
     opacity: 1;
     transform: translateY(0);
 }
 
 .btn-quickview {
-    background-color: #ffffff;
-    color: var(--text-heading);
+    background: #fff;
+    color: #0f172a;
     font-size: 0.8rem;
     font-weight: var(--fw-bold);
-    padding: 0.45rem 1rem;
+    padding: 0.45rem 1.1rem;
     border-radius: var(--radius-pill);
-    box-shadow: var(--shadow-card);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
 .btn-quickview:hover {
-    background-color: var(--clr-primary);
+    background: var(--clr-violet);
     color: #fff;
 }
 
-.book-info {
-    padding: var(--space-md) var(--space-md) var(--space-lg) var(--space-md);
+.product-card__content {
+    padding: 1.4rem;
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.45rem;
 }
 
-.book-category {
-    font-size: 0.75rem;
-    font-weight: var(--fw-bold);
-    color: var(--clr-primary);
+.product-genre {
+    font-size: 0.72rem;
+    font-weight: var(--fw-extrabold);
+    color: var(--clr-cyan);
     text-transform: uppercase;
 }
 
-.book-title {
-    font-size: 1.05rem;
+.product-name {
+    font-size: 1.1rem;
     line-height: 1.35;
-    color: var(--text-heading);
+    color: #fff;
 }
 
-.book-author {
+.product-author {
     font-size: 0.85rem;
-    color: var(--text-muted);
+    color: var(--text-secondary);
 }
 
-.book-rating {
+.product-rating {
     display: flex;
     align-items: center;
     gap: 0.35rem;
@@ -812,347 +1033,470 @@ h1, h2, h3, h4 {
     margin: 0.2rem 0;
 }
 
-.rating-num {
-    color: var(--text-muted);
+.rating-text {
     font-size: 0.75rem;
+    color: var(--text-muted);
 }
 
-.book-pricing {
+.product-pricing {
     display: flex;
     align-items: baseline;
     gap: 0.5rem;
-    margin-bottom: var(--space-xs);
+    margin-bottom: 0.5rem;
 }
 
 .price-current {
     font-family: var(--ff-heading);
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: var(--fw-black);
-    color: #dc2626;
+    color: #fff;
 }
 
-.price-original {
+.price-old {
     font-size: 0.85rem;
-    color: var(--text-light);
+    color: var(--text-muted);
     text-decoration: line-through;
 }
 
 .pagination {
     display: flex;
     justify-content: center;
-    align-items: center;
     gap: 0.5rem;
-    margin-top: var(--space-2xl);
+    margin-top: 2.5rem;
 }
 
-.page-link {
-    width: 38px;
-    height: 38px;
+.page-btn {
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: var(--radius-md);
-    border: 1px solid #cbd5e1;
-    background-color: var(--bg-surface);
-    font-weight: var(--fw-semibold);
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    color: var(--text-secondary);
+    font-weight: var(--fw-bold);
     font-size: 0.9rem;
-    color: var(--text-body);
 }
 
-.page-link.active,
-.page-link:hover {
-    background-color: var(--clr-primary);
-    color: var(--text-white);
-    border-color: var(--clr-primary);
+.page-btn.active,
+.page-btn:hover {
+    background: var(--gradient-primary);
+    color: #fff;
+    border-color: transparent;
 }
 
-.page-link.next {
+.page-btn--next {
     width: auto;
-    padding: 0 1rem;
+    padding: 0 1.2rem;
 }
 
 /* ========================================================================
-   8. SPOTLIGHT SECTION (SÁCH HAY CỦA TUẦN)
+   9. VIRTUAL 3D OPEN BOOK PREVIEW (LẬT MỞ TRANG SÁCH 3D PURE CSS)
    ======================================================================== */
-.spotlight-section {
-    padding: var(--space-section) 0;
-    background-color: var(--clr-primary-light);
-}
-
-.spotlight-card {
-    background-color: var(--bg-surface);
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-    box-shadow: var(--shadow-card-hover);
-    border: 1px solid rgba(30, 58, 138, 0.15);
+.book-stage {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    perspective: 1500px;
+    padding: 2rem 0;
 }
 
-.spotlight-image {
+.book-3d {
+    width: 680px;
+    height: 420px;
+    display: flex;
     position: relative;
-    height: 320px;
+    transform-style: preserve-3d;
+    transform: rotateX(14deg);
+    transition: var(--ease-spring);
+    box-shadow: 0 35px 80px -20px rgba(0, 0, 0, 0.9);
+    border-radius: 8px;
 }
 
-.spotlight-img {
+.book-3d:hover {
+    transform: rotateX(6deg) scale(1.02);
+}
+
+.book-page {
+    width: 50%;
+    height: 100%;
+    background: #fdfbf7;
+    color: #1a1a2e;
+    padding: 2.5rem 2.2rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.08);
+}
+
+.book-page--left {
+    border-radius: 8px 0 0 8px;
+    border-right: 1px solid #e2dcd2;
+    background: linear-gradient(to right, #f4eee3 0%, #fdfbf7 25%);
+    transform-origin: right center;
+}
+
+.book-page--right {
+    border-radius: 0 8px 8px 0;
+    border-left: 1px solid #e2dcd2;
+    background: linear-gradient(to left, #f4eee3 0%, #fdfbf7 25%);
+    transform-origin: left center;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.book-3d:hover .book-page--right {
+    transform: rotateY(-18deg);
+    box-shadow: -15px 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.book-spine {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.02) 40%,
+        rgba(0, 0, 0, 0.02) 60%,
+        rgba(0, 0, 0, 0.15)
+    );
+    z-index: 5;
+    pointer-events: none;
+}
+
+.book-page__inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.page-label {
+    font-size: 0.72rem;
+    font-weight: var(--fw-extrabold);
+    letter-spacing: 0.15em;
+    color: #8b5cf6;
+    text-transform: uppercase;
+}
+
+.book-page h4 {
+    font-size: 1.25rem;
+    color: #0f172a;
+    margin: 0.5rem 0 1rem 0;
+}
+
+.book-page p {
+    font-size: 0.88rem;
+    color: #475569;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+.page-number {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    text-align: right;
+    font-weight: var(--fw-semibold);
+}
+
+.page-signature {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #0f172a;
+}
+
+.stage-hint {
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* ========================================================================
+   10. CYBER 3D BOOKSHELF (KỆ SÁCH RÚT SÁCH RA PURE CSS)
+   ======================================================================== */
+.shelf-wrapper {
+    position: relative;
+    perspective: 1200px;
+    padding: 3rem 0 1rem 0;
+}
+
+.shelf-books {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 1.2rem;
+    height: 280px;
+    position: relative;
+    z-index: 2;
+}
+
+.shelf-item {
+    width: 60px;
+    height: var(--book-height, 220px);
+    cursor: pointer;
+    perspective: 800px;
+    transition: var(--ease-spring);
+}
+
+.shelf-spine {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-}
-
-.spotlight-tag {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background-color: var(--clr-accent);
-    color: #fff;
-    font-size: 0.75rem;
-    font-weight: var(--fw-black);
-    padding: 0.35rem 0.85rem;
-    border-radius: var(--radius-pill);
-    letter-spacing: 0.08em;
-}
-
-.spotlight-details {
-    padding: var(--space-xl) var(--space-md);
+    border-radius: 6px 6px 2px 2px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
-.spotlight-category {
-    font-size: var(--fs-xs);
-    font-weight: var(--fw-bold);
-    color: var(--clr-accent);
-    letter-spacing: 0.1em;
-}
-
-.spotlight-title {
-    font-size: clamp(1.4rem, 2.5vw, 2rem);
-    margin: 0.5rem 0;
-}
-
-.spotlight-author {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    margin-bottom: var(--space-md);
-}
-
-.spotlight-quote {
-    font-style: italic;
-    color: var(--text-body);
-    border-left: 3px solid var(--clr-primary);
-    padding-left: var(--space-md);
-    margin-bottom: var(--space-lg);
-    line-height: 1.7;
-}
-
-.spotlight-specs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-md);
-    margin-bottom: var(--space-xl);
-    padding: var(--space-md) 0;
-    border-top: 1px solid #e2e8f0;
-    border-bottom: 1px solid #e2e8f0;
-}
-
-.spec-item {
-    display: flex;
-    flex-direction: column;
-}
-
-.spec-label {
-    font-size: var(--fs-xs);
-    color: var(--text-muted);
-}
-
-.spec-val {
-    font-weight: var(--fw-bold);
-    font-size: 0.95rem;
-    color: var(--text-heading);
-}
-
-.spotlight-buy {
-    display: flex;
     align-items: center;
-    gap: var(--space-lg);
+    padding: 1rem 0.4rem;
+    box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.6);
+    transition: var(--ease-spring);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.price-large {
+.spine-num {
     font-family: var(--ff-heading);
-    font-size: 1.8rem;
+    font-size: 0.8rem;
     font-weight: var(--fw-black);
-    color: #dc2626;
+    color: rgba(255, 255, 255, 0.7);
 }
 
-.price-strike {
-    font-size: 1rem;
-    color: var(--text-light);
-    text-decoration: line-through;
+.spine-title {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-family: var(--ff-heading);
+    font-size: 0.85rem;
+    font-weight: var(--fw-bold);
+    color: #fff;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-height: 140px;
+}
+
+.spine-author {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.6);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    white-space: nowrap;
+}
+
+/* Rút sách ra khỏi kệ */
+.shelf-item:hover {
+    transform: translateY(-38px) translateZ(40px) rotate(-3deg);
+    z-index: 10;
+}
+
+.shelf-item:hover .shelf-spine {
+    box-shadow: 0 20px 40px -5px var(--glow, #8b5cf6),
+                0 0 25px var(--glow, #8b5cf6);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.shelf-base {
+    width: 100%;
+    height: 22px;
+    background: linear-gradient(180deg, #1e293b, #0f172a);
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8),
+                inset 0 2px 3px rgba(255, 255, 255, 0.2);
+    position: relative;
+    z-index: 1;
 }
 
 /* ========================================================================
-   9. REVIEWS SECTION (BÀI 02: <blockquote> & ẢNH ĐỘC GIẢ THẬT)
+   11. REVIEWS SECTION (BÀI 02: <blockquote> & ẢNH ĐỘC GIẢ THẬT)
    ======================================================================== */
-.reviews-section {
-    padding: var(--space-section) 0;
-    background-color: var(--bg-surface);
-}
-
-.reviews-grid {
+.reviews__grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-lg);
+    gap: 1.8rem;
 }
 
-.review-item {
-    background-color: var(--bg-body);
-    border: 1px solid #e2e8f0;
+.review-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
     border-radius: var(--radius-lg);
-    padding: var(--space-lg);
+    padding: 2rem;
+    backdrop-filter: blur(16px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: var(--transition-normal);
+    transition: var(--ease-smooth);
 }
 
-.review-item:hover {
-    border-color: var(--clr-primary);
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-card);
+.review-card:hover {
+    border-color: rgba(236, 72, 153, 0.4);
+    transform: translateY(-5px);
+    box-shadow: var(--glow-pink);
 }
 
-.review-stars {
-    margin-bottom: var(--space-sm);
-    font-size: 0.95rem;
-}
-
-.review-quote {
-    color: var(--text-body);
-    font-size: 0.95rem;
-    line-height: 1.65;
-    margin-bottom: var(--space-lg);
-    font-style: normal;
-}
-
-.review-author {
+.review-card__header {
     display: flex;
     align-items: center;
-    gap: var(--space-md);
-    padding-top: var(--space-sm);
-    border-top: 1px solid #e2e8f0;
+    gap: 0.85rem;
+    margin-bottom: 1rem;
 }
 
-.author-avatar {
+.review-card__avatar {
     width: 48px;
     height: 48px;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-.author-meta strong {
+.review-card__user {
+    flex: 1;
+}
+
+.review-card__user strong {
     display: block;
-    font-size: 0.92rem;
-    color: var(--text-heading);
+    font-size: 0.95rem;
+    color: #fff;
 }
 
-.author-meta span {
-    font-size: 0.78rem;
+.review-card__user span {
+    font-size: 0.75rem;
     color: var(--text-muted);
+}
+
+.review-card__badge {
+    width: 20px;
+    height: 20px;
+    background: #3b82f6;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: var(--fw-black);
+}
+
+.review-card__stars {
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+}
+
+.review-card__quote {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+    font-style: normal;
+}
+
+.review-card__tag {
+    font-size: 0.78rem;
+    font-weight: var(--fw-semibold);
+    color: var(--clr-violet);
 }
 
 /* ========================================================================
-   10. ORDER & CONSULTATION FORM (BÀI 02: FORM CHUẨN)
+   12. ORDER GLASS FORM (BÀI 02: FORM CHUẨN)
    ======================================================================== */
-.order-section {
-    padding: var(--space-section) 0;
-    background-color: var(--bg-body);
-}
-
-.order-card {
-    background-color: var(--bg-surface);
+.order-glass {
+    background: linear-gradient(145deg, rgba(18, 24, 38, 0.9), rgba(12, 16, 26, 0.95));
+    border: 1px solid var(--border-glass);
     border-radius: var(--radius-xl);
-    padding: var(--space-xl) var(--space-md);
-    box-shadow: var(--shadow-card-hover);
-    border: 1px solid #e2e8f0;
-    max-width: 860px;
+    padding: 3.5rem 2rem;
+    max-width: 820px;
     margin: 0 auto;
-}
-
-.order-header {
+    backdrop-filter: blur(25px);
+    box-shadow: var(--shadow-card);
     text-align: center;
-    margin-bottom: var(--space-xl);
 }
 
-.order-desc {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    max-width: 600px;
-    margin: 0.5rem auto 0 auto;
+.order-glass__badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: var(--fw-extrabold);
+    color: var(--clr-amber);
+    background: rgba(245, 158, 11, 0.15);
+    padding: 0.35rem 1rem;
+    border-radius: var(--radius-pill);
+    margin-bottom: 1rem;
 }
 
-.form-grid {
+.order-glass__title {
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    margin-bottom: 0.75rem;
+}
+
+.order-glass__desc {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    margin-bottom: 2.5rem;
+}
+
+.order-form {
+    text-align: left;
+}
+
+.form-row {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-md);
-    margin-bottom: var(--space-lg);
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    gap: 0.45rem;
 }
 
 .form-group label {
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     font-weight: var(--fw-semibold);
-    color: var(--text-heading);
+    color: var(--text-primary);
 }
 
 .req {
-    color: #dc2626;
+    color: #ef4444;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-    padding: 0.75rem 1rem;
-    border: 1px solid #cbd5e1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-glass);
     border-radius: var(--radius-md);
-    background-color: #fff;
-    color: var(--text-heading);
+    padding: 0.85rem 1.1rem;
+    color: #fff;
     outline: none;
-    transition: var(--transition-fast);
+    transition: var(--ease-smooth);
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-    border-color: var(--clr-primary);
-    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.12);
+    border-color: var(--clr-violet);
+    box-shadow: var(--glow-violet);
+    background: rgba(255, 255, 255, 0.08);
 }
 
-.form-actions {
-    text-align: center;
+.form-group select option {
+    background: #0f172a;
+    color: #fff;
 }
 
-.btn-submit {
-    width: 100%;
-    padding: 0.9rem;
-    font-size: 1.05rem;
+.form-group.full-width {
+    margin-bottom: 1.25rem;
 }
 
 .form-security {
-    font-size: var(--fs-xs);
+    text-align: center;
+    font-size: 0.75rem;
     color: var(--text-muted);
-    margin-top: var(--space-sm);
+    margin-top: 1rem;
 }
 
 /* ========================================================================
-   11. QUICK VIEW MODAL (CSS :target - 100% PURE CSS THEO BÀI 05)
+   13. QUICK VIEW MODAL (CSS :target - 100% PURE CSS THEO BÀI 05)
    ======================================================================== */
 .modal-backdrop {
     position: fixed;
@@ -1160,12 +1504,12 @@ h1, h2, h3, h4 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(15, 23, 42, 0.65);
-    backdrop-filter: blur(4px);
+    background-color: rgba(9, 13, 22, 0.85);
+    backdrop-filter: blur(10px);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--space-md);
+    padding: 1.5rem;
     z-index: 1000;
     opacity: 0;
     pointer-events: none;
@@ -1178,14 +1522,15 @@ h1, h2, h3, h4 {
 }
 
 .modal-box {
-    background-color: var(--bg-surface);
+    background: linear-gradient(145deg, #182238, #0f1728);
+    border: 1px solid var(--border-glass);
     border-radius: var(--radius-xl);
     max-width: 760px;
     width: 100%;
     max-height: 90vh;
     overflow-y: auto;
     position: relative;
-    box-shadow: var(--shadow-modal);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
     transform: scale(0.9);
     transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
@@ -1200,26 +1545,25 @@ h1, h2, h3, h4 {
     right: 20px;
     font-size: 2rem;
     color: var(--text-muted);
-    text-decoration: none;
     line-height: 1;
     z-index: 10;
 }
 
 .modal-close:hover {
-    color: #dc2626;
+    color: #ef4444;
 }
 
 .modal-body {
     display: flex;
     flex-direction: column;
-    padding: var(--space-xl) var(--space-lg);
-    gap: var(--space-lg);
+    padding: 2.5rem 2rem;
+    gap: 2rem;
 }
 
 .modal-thumb {
-    background-color: #f8fafc;
+    background: #0d1322;
     border-radius: var(--radius-lg);
-    padding: var(--space-lg);
+    padding: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1229,150 +1573,151 @@ h1, h2, h3, h4 {
     height: 240px;
     object-fit: contain;
     border-radius: 4px;
-    box-shadow: var(--shadow-card);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+}
+
+.badge-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: var(--fw-extrabold);
+    color: var(--clr-cyan);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
 }
 
 .modal-text h2 {
     font-size: 1.45rem;
-    margin: 0.25rem 0;
+    margin-bottom: 0.25rem;
 }
 
 .modal-author {
-    font-size: 0.9rem;
-    color: var(--text-muted);
+    font-size: 0.88rem;
+    color: var(--text-secondary);
 }
 
 .modal-pricing {
     display: flex;
     align-items: baseline;
     gap: 0.5rem;
-    margin: 0.75rem 0;
+    margin: 0.85rem 0;
 }
 
 .modal-price {
     font-family: var(--ff-heading);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: var(--fw-black);
-    color: #dc2626;
+    color: #fff;
 }
 
 .modal-old-price {
     font-size: 0.9rem;
-    color: var(--text-light);
+    color: var(--text-muted);
     text-decoration: line-through;
 }
 
 .modal-summary {
     font-size: 0.9rem;
-    color: var(--text-body);
+    color: var(--text-secondary);
     line-height: 1.6;
-    margin-bottom: var(--space-md);
+    margin-bottom: 1rem;
 }
 
 .modal-specs {
     font-size: 0.85rem;
-    color: var(--text-body);
+    color: var(--text-secondary);
     display: flex;
     flex-direction: column;
     gap: 0.35rem;
-    padding: var(--space-sm) 0;
-    border-top: 1px solid #e2e8f0;
-    border-bottom: 1px solid #e2e8f0;
-    margin-bottom: var(--space-md);
+    padding: 0.75rem 0;
+    border-top: 1px solid var(--border-glass);
+    border-bottom: 1px solid var(--border-glass);
+    margin-bottom: 1.5rem;
 }
 
 /* ========================================================================
-   12. FOOTER (BÀI 02: <footer> & <address>)
+   14. FOOTER (BÀI 02: <footer> & <address>)
    ======================================================================== */
-.site-footer {
-    background-color: var(--bg-footer);
-    color: #cbd5e1;
-    padding: var(--space-2xl) 0 var(--space-lg) 0;
+.footer {
+    padding: 5rem 0 2rem 0;
+    border-top: 1px solid var(--border-glass);
+    background: #05080e;
 }
 
-.footer-grid {
+.footer__top {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-xl);
-    margin-bottom: var(--space-2xl);
+    gap: 2.5rem;
+    margin-bottom: 3.5rem;
 }
 
-.footer-col .brand-logo {
-    color: #fff;
-    margin-bottom: var(--space-sm);
-}
-
-.footer-about {
-    font-size: 0.88rem;
-    color: #94a3b8;
+.footer__desc {
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    margin: 1rem 0 1.5rem 0;
     line-height: 1.6;
-    margin-bottom: var(--space-md);
 }
 
-.social-tags {
+.footer__tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem;
-}
-
-.social-tags .tag {
-    font-size: 0.75rem;
-    background-color: rgba(255, 255, 255, 0.08);
-    color: #cbd5e1;
-    padding: 0.2rem 0.55rem;
-    border-radius: var(--radius-sm);
-}
-
-.footer-heading {
-    font-size: 1rem;
-    color: #ffffff;
-    margin-bottom: var(--space-md);
-}
-
-.footer-links {
-    display: flex;
-    flex-direction: column;
     gap: 0.5rem;
 }
 
-.footer-links a {
-    color: #94a3b8;
+.f-tag {
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-sm);
+}
+
+.footer__links h4 {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 1.2rem;
+}
+
+.footer__links ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.footer__links a {
+    color: var(--text-secondary);
     font-size: 0.88rem;
 }
 
-.footer-links a:hover {
-    color: #60a5fa;
+.footer__links a:hover {
+    color: var(--clr-cyan);
     padding-left: 4px;
 }
 
-.contact-info {
+.footer__address {
     font-style: normal;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
+    color: var(--text-secondary);
     font-size: 0.88rem;
-    color: #94a3b8;
-    line-height: 1.6;
+    line-height: 1.8;
 }
 
-.contact-info strong {
-    color: #ffffff;
+.footer__address strong {
+    color: #fff;
 }
 
-.footer-bottom {
+.footer__bottom {
     text-align: center;
-    padding-top: var(--space-lg);
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
     font-size: 0.82rem;
-    color: #64748b;
+    color: var(--text-muted);
 }
 
-.footer-bottom strong {
-    color: #cbd5e1;
+.footer__bottom strong {
+    color: #fff;
 }
 
 /* ========================================================================
-   13. MEDIA QUERIES (MOBILE FIRST SYSTEM - BÀI 04)
+   15. MEDIA QUERIES (MOBILE FIRST - BÀI 04)
    ======================================================================== */
 
 /* --- TABLET BREAKPOINT (MIN-WIDTH: 768px) --- */
@@ -1381,30 +1726,29 @@ h1, h2, h3, h4 {
         display: block;
     }
 
-    .hero-container {
+    .hero__grid {
         flex-direction: row;
         justify-content: space-between;
         text-align: left;
     }
 
-    .hero-content {
-        text-align: left;
+    .hero__text {
         max-width: 55%;
     }
 
-    .hero-description {
+    .hero__subtitle {
         margin-left: 0;
     }
 
-    .hero-buttons {
+    .hero__actions {
         flex-direction: row;
     }
 
-    .hero-trust {
+    .hero__social-proof {
         justify-content: flex-start;
     }
 
-    .services-grid {
+    .services__grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -1412,36 +1756,12 @@ h1, h2, h3, h4 {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .reviews-grid {
+    .reviews__grid {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    .spotlight-card {
-        flex-direction: row;
-    }
-
-    .spotlight-image {
-        width: 45%;
-        height: auto;
-    }
-
-    .spotlight-details {
-        width: 55%;
-        padding: var(--space-2xl);
-    }
-
-    .form-grid {
+    .form-row {
         grid-template-columns: repeat(2, 1fr);
-    }
-
-    .form-group.full-width {
-        grid-column: span 2;
-    }
-
-    .btn-submit {
-        width: auto;
-        padding-left: 3rem;
-        padding-right: 3rem;
     }
 
     .modal-body {
@@ -1456,35 +1776,35 @@ h1, h2, h3, h4 {
         width: 60%;
     }
 
-    .footer-grid {
+    .footer__top {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 /* --- DESKTOP BREAKPOINT (MIN-WIDTH: 1024px) --- */
 @media (min-width: 1024px) {
-    .menu-btn {
+    .nav__hamburger {
         display: none;
     }
 
-    .nav-links {
+    .nav__menu {
         position: static;
         flex-direction: row;
         width: auto;
         padding: 0;
         gap: 1.8rem;
-        background-color: transparent;
+        background: transparent;
         border-bottom: none;
-        box-shadow: none;
+        backdrop-filter: none;
         transform: none;
     }
 
-    .services-grid {
+    .services__grid {
         grid-template-columns: repeat(4, 1fr);
     }
 
     /* Layout chuẩn Bài 02 & Bài 03: Aside 280px + Grid Products */
-    .catalog-layout {
+    .catalog__layout {
         grid-template-columns: 280px 1fr;
     }
 
@@ -1492,7 +1812,22 @@ h1, h2, h3, h4 {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    .footer-grid {
+    .footer__top {
         grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
     }
+}
+
+/* Tùy chỉnh thanh cuộn Neon */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-base);
+}
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--clr-violet);
 }
